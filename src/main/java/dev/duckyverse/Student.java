@@ -1,0 +1,30 @@
+package dev.duckyverse;
+
+
+import dev.duckyverse.annotation.*;
+
+public class Student {
+    @NotNull(message = "Nie podano imienia")
+    @Size(min = 3, max = 50,
+            message = "Imię musi składać się z przynajmniej {min} znaków i nie przekraczać {max}")
+    private String imie;
+    @NotNull(message = "Nie podano nazwiska")
+    @Size(min = 2, max = 50,
+            message = "Nazwisko musi składać się z przynajmniej {min} znaków i nie przekraczać {max}")
+    private String nazwisko;
+    @NotNull(message = "Nie podano numeru indeksu")
+    @NrIndeksu(message = "Niepoprawny numer indeksu") // tylko ośmiocyfrowy łańcuch znaków
+    private String nrIndeksu;
+    @NotEmpty(message = "Nie podano adresu e-mail")
+    @Email(message = "Niepoprawny adres e-mail")
+    private String email;
+    public Student(){
+    }
+    public Student(String imie, String nazwisko, String nrIndeksu, String email) {
+        this.imie = imie;
+        this.nazwisko = nazwisko;
+        this.nrIndeksu = nrIndeksu;
+        this.email = email;
+    }
+
+}
