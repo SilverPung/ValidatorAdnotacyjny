@@ -7,8 +7,10 @@ import java.util.HashMap;
 import java.util.Map;
 
 public class ValidationStrategyFactory {
-    // fragment Class<? extends Annotation> określa, że kluczem mapy mogą być
-// tylko klasy, które rozszerzają lub implementują interfejs Annotation
+    /**
+     * Factory class dla tworzenia strategii walidacji.
+     * Zawiera mapę strategii walidacji, które są przypisane do odpowiednich adnotacji.
+     */
     private static final Map<Class<? extends Annotation>, ValidationStrategy>
             strategies = new HashMap<>();
     static {

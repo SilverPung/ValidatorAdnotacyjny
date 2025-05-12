@@ -7,6 +7,16 @@ import java.util.Optional;
 
 public class EmailStrategy implements ValidationStrategy {
 
+
+
+    /**
+     * Metoda walidująca adres e-mail.
+     * Sprawdza, czy wartość pola jest zgodna z formatem adresu e-mail.
+     *
+     * @param field pole do walidacji
+     * @param value wartość pola
+     * @return opcjonalny komunikat o błędzie, jeśli walidacja nie powiodła się
+     */
     @Override
     public Optional<String> validate(Field field, Object value) {
         if (field.isAnnotationPresent(Email.class) && value instanceof String strValue) {

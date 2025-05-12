@@ -16,12 +16,12 @@ public class Validator {
     public static void validate(Object object) throws ValidationException {
         final List<String> errors = new ArrayList<>();
         final Class<?> clazz = object.getClass();
-// iterowanie po wszystkich polach danej klasy
+        // iterowanie po wszystkich polach danej klasy
         for (Field field : clazz.getDeclaredFields()) {
             field.setAccessible(true); // umożliwia dostęp również do pól prywatnych danej klasy
             try {
                 Object value = field.get(object);
-// iterowanie po wszystkich adnotacjach danego pola
+                // iterowanie po wszystkich adnotacjach danego pola
                 for (Annotation annotation : field.getAnnotations()) {
                     ValidationStrategy strategy = ValidationStrategyFactory.getStrategy(annotation);
                     if (strategy != null) {

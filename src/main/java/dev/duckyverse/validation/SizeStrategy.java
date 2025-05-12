@@ -6,6 +6,15 @@ import java.lang.reflect.Field;
 import java.util.Optional;
 
 public class SizeStrategy implements ValidationStrategy {
+
+    /**
+     * Metoda validate sprawdza, czy długość wartości pola mieści się w zadanym zakresie.
+     * Jeśli nie, zwraca komunikat o błędzie.
+     *
+     * @param field pole do walidacji
+     * @param value wartość pola
+     * @return opcjonalny komunikat o błędzie
+     */
     @Override
     public Optional<String> validate(Field field, Object value) {
         if (field.isAnnotationPresent(Size.class) && value instanceof String strValue) {
